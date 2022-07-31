@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+    margin: 30px;
+    font-family: "Poppins";
+}
+
+.grid-container {
+    background: #eee;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+
+    /* 
+        3 columns 
+        grid-template-columns: 300px 300px 300px; 
+    */
+
+    /* 
+        6 columns 
+        1fr: divide max-width equaly
+    */
+    grid-template-columns: repeat(6, 1fr);
+
+    /* 3 row, each height is 100px 200px 300px */
+    grid-template-rows: 100px 200px 300px;
+
+    /* columns and rows gap */
+    gap: 10px;
+
+    /* 左右伸展 */
+    justify-items: stretch; 
+
+    /* 上下伸展 */
+    align-items: stretch;
+}
+
+.grid-container>div {
+    background: #ccc;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #777;
+}
+
+
+
+
+/*  
+    ------------------------------------------------
+                    div elements
+    ------------------------------------------------
+*/
+.grid-container>div:nth-child(1) {
+    /* 
+        每個 | 都是一個 column，我們上面設定 6 個，
+        第一個參數是起點，表示從 column 1 擴展 2 倍
+          1   2   3   4   5   6          1     2   3   4   5
+        |   |   |   |   |   |    =>  |   |   |   |   |   |
+                                       6
+                                     |
+    */
+    grid-column: 1 / span 2;
+}
+
+.grid-container>div:nth-child(2) {
+    /* 
+        可以省略第一個參數，原地擴展 3 倍
+        grid-column: 3 / span 3;
+    */
+    grid-column: span 3;
+}
+
+.grid-container>div:nth-child(3) {
+    /* 
+        預設值就是 1，所以不會改變任何樣式 
+    */
+    grid-column: span 1;
+}
+
+.grid-container>div:nth-child(4) {
+    /* 
+        從 column 2 擴展到 column 6 前
+    */
+    grid-column: 2 / 6;
+    align-self: end;
+}
+
+.grid-container>div:nth-child(5) {
+    grid-column: span 3;
+}
+
+.grid-container>div:nth-child(6) {
+    grid-column: span 3;
+    justify-self: end;
+    align-self: start;
+}
