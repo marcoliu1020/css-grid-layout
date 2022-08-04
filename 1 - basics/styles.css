@@ -30,7 +30,7 @@ body {
     gap: 10px;
 
     /* 左右伸展 */
-    justify-items: stretch; 
+    justify-items: stretch;
 
     /* 上下伸展 */
     align-items: stretch;
